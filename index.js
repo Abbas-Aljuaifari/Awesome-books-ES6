@@ -1,39 +1,17 @@
-import getSavedCollection from './modules/storage.js';
-import renderBookList from './modules/render.js';
-import addBook from './modules/addBook.js';
-import setupNavigation from './modules/navigation.js';
-import { DateTime } from './modules/luxon.js';
+import { initializeCollection } from './modules/bookCollection.js';
+import renderBookList from './modules/bookList.js';
+import handleFormSubmit from './modules/addBook.js';
+import handleNavigationClick from './modules/navigation.js';
 
-const bookCollection = getSavedCollection();
+document
+  .getElementById('addBookForm')
+  .addEventListener('submit', handleFormSubmit);
 
-document.getElementById('addBookForm').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const titleInput = document.getElementById('title');
-  const authorInput = document.getElementById('author');
-  const title = titleInput.value;
-  const author = authorInput.value;
-
-  addBook(title, author, bookCollection);
-
-  titleInput.value = '';
-  authorInput.value = '';
+document.querySelectorAll('nav a').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    handleNavigationClick(event, link);
+  });
 });
 
-setupNavigation();
-
-renderBookList(bookCollection);
-
-function getCurrentDate() {
-  return DateTime.now().toFormat('DDDD');
-}
-
-function displayCurrentDate() {
-  const currentDateElement = document.createElement('p');
-  currentDateElement.textContent = getCurrentDate();
-  document.body.insertBefore(
-    currentDateElement,
-    document.querySelector('main'),
-  );
-}
-
-displayCurrentDate();
+initializeCollection();
+renderBookList();

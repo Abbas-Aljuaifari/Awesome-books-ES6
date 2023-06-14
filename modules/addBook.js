@@ -1,14 +1,18 @@
-const addBook = (title, author, collection) => {
-  const newBook = { title, author };
-  collection.push(newBook);
+import { addBook } from './bookCollection.js';
+import renderBookList from './bookList.js';
 
-  import('./storage.js').then((module) => {
-    module.saveCollection(collection);
-  });
+const handleFormSubmit = (event) => {
+  event.preventDefault();
 
-  import('./render.js').then((module) => {
-    module.renderBookList(collection);
-  });
+  const titleInput = document.getElementById('title');
+  const authorInput = document.getElementById('author');
+  const title = titleInput.value;
+  const author = authorInput.value;
+
+  addBook(title, author);
+  renderBookList();
+
+  titleInput.value = '';
+  authorInput.value = '';
 };
-
-export default addBook;
+export default handleFormSubmit;
