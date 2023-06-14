@@ -65,7 +65,7 @@ pleas know that it is still on going and it needs more work but everything is co
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://abbas-aljuaifari.github.io/Awesome-books-navigation/)
+- [Live Demo Link](https://abbas-aljuaifari.github.io/Awesome-books-ES6/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
