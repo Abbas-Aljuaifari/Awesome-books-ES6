@@ -1,5 +1,3 @@
-# Awesome-books-ES6
-
 <a name="readme-top"></a>
 
 <div align="center">
@@ -16,7 +14,7 @@
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
-    - [Key Features](#key-features)
+  - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
