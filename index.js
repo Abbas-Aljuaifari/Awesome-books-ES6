@@ -1,7 +1,7 @@
-import { getSavedCollection } from './modules/storage.js';
-import { renderBookList } from './modules/render.js';
-import { addBook } from './modules/addBook.js';
-import { setupNavigation } from './modules/navigation.js';
+import getSavedCollection from './modules/storage.js';
+import renderBookList from './modules/render.js';
+import addBook from './modules/addBook.js';
+import setupNavigation from './modules/navigation.js';
 import { DateTime } from './modules/luxon.js';
 
 const bookCollection = getSavedCollection();
@@ -30,8 +30,10 @@ function getCurrentDate() {
 function displayCurrentDate() {
   const currentDateElement = document.createElement('p');
   currentDateElement.textContent = getCurrentDate();
-  document.body.insertBefore(currentDateElement, document.querySelector('main'));
+  document.body.insertBefore(
+    currentDateElement,
+    document.querySelector('main'),
+  );
 }
 
 displayCurrentDate();
-
